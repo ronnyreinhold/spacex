@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel-watch server.js"
+    "dev": "babel-watch src/server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
