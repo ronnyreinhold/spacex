@@ -1,0 +1,19 @@
+{
+  "name": "spacex",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel-watch server.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-watch": "^7.0.0"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.5.0",
+    "axios": "^0.18.0",
+    "graphql": "^14.3.0"
+  }
+}
