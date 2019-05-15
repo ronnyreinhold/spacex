@@ -15,12 +15,15 @@ const typeDefs = gql`
         id: ID!
         name: String
         type: String
+        description: String
     }
 
     type Query {
         hello:  String
-        getLaunch(id: ID!): Launch
+        getLaunch(id: ID!): Launch!
         getLaunches: [Launch]!
+        getRocket(id: ID!): Rocket!
+        getRockets: [Rocket]!
     }
 `;
 

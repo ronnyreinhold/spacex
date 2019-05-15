@@ -2,8 +2,13 @@ import api from '../services/api';
 
 export default class Launch {
     async getLaunch(id) {
-        const res = await api.get(`/${id}`);
+        const res = await api.get(`/launches/${id}`);
         return this.reducer(res.data);
+    }
+
+    async getLaunches(){
+        const res = await api.get('/launches');
+        return Array.isArray(res.data) ? res.data.map(launch => this.reducer(launch)) : [];
     }
 
     reducer(data){
@@ -16,7 +21,7 @@ export default class Launch {
             rocket: {
                 id: data.rocket.rocket_id,
                 name: data.rocket.rocket_name,
-                type: data.rocket.rocket_type
+                type: data.rocket.rocket_type,
             }
         }
     }
