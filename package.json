@@ -5,8 +5,10 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d build",
-    "dev": "babel-watch src/server.js",
-    "start": "yarn build && node build/server.js"
+    "start": "babel-watch src/server.js",
+    "server": "yarn build && node build/server.js",
+    "client": "yarn --cwd client start",
+    "dev": "concurrently \"yarn start\" \"yarn client\""
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -17,6 +19,8 @@
   "dependencies": {
     "apollo-server-express": "^2.5.0",
     "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "create-react-app": "^3.0.1",
     "express": "^4.16.4",
     "graphql": "^14.3.0"
   }
