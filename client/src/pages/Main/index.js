@@ -23,7 +23,9 @@ export default class Main extends Component {
     render(){
         return(
             <div id="container">
-                { this.state.launches.map(launch => <p className="text" key={launch.id}>{launch.mission}</p>)}
+                { this.state.launches && this.state.launches.map(launch => (
+                    <p className="text" key={launch.id}>{launch.mission}</p>
+                ))}
             </div>
         )
     }
