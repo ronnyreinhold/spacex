@@ -4,9 +4,12 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel-watch src/server.js"
+    "build": "babel src -d build",
+    "dev": "babel-watch src/server.js",
+    "start": "yarn build && node build/server.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "babel-watch": "^7.0.0"
