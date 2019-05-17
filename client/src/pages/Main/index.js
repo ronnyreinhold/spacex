@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 import './style.css';
 import logo from '../../assets/early-acess.gif';
+import Utils from '../../utils/Utils.js';
 
 export default class Main extends Component {
     state = {
@@ -14,6 +15,7 @@ export default class Main extends Component {
                 id,
                 mission,
                 success,
+                date,
                 rocket{
                     name
                 }
@@ -29,6 +31,7 @@ export default class Main extends Component {
                     <header>
                         <img src={logo} alt="" />
                         <h1>SpaceX</h1>
+                        <small> This app shows every SpaceX launch over the years </small>
                     </header>
                 </div>
                 <div className="row black">
@@ -38,8 +41,9 @@ export default class Main extends Component {
                             <div className={((launch.id % 2 === 0) 
                             ? `container${((launch.success) ? "" : "-error")} right`
                             : `container${((launch.success) ? "" : "-error")} left`
-                            )}>
-                                <div className="content" key={launch.id}>
+                            )} key={launch.id}>
+                                <div className="content" >
+                                    <span>{Utils.setDateToString(launch.date)}</span>
                                     <h3>{launch.mission}</h3>
                                 </div>
                             </div>
