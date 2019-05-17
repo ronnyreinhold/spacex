@@ -28,14 +28,17 @@ export default class Main extends Component {
                 <div className="row white">
                     <header>
                         <img src={logo} alt="" />
-                        <h2>SpaceX</h2>
+                        <h1>SpaceX</h1>
                     </header>
                 </div>
                 <div className="row black">
                     <h2>Launches</h2>
                     <div className="timeline">
-                        { this.state.launches && this.state.launches.map( launch => (
-                            <div className={((launch.id % 2 === 0) ? "container right": "container left")}>
+                        { this.state.launches && this.state.launches.map( launch => ( 
+                            <div className={((launch.id % 2 === 0) 
+                            ? `container${((launch.success) ? "" : "-error")} right`
+                            : `container${((launch.success) ? "" : "-error")} left`
+                            )}>
                                 <div className="content" key={launch.id}>
                                     <h3>{launch.mission}</h3>
                                 </div>

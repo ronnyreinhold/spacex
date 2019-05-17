@@ -16,7 +16,7 @@
     max-width: 400px;
 }
 
-.white h2 {
+.white h1 {
     margin-top: 30px;
     font-size: 2em;
 }
@@ -71,11 +71,30 @@
   width: 15px;
   height: 15px;
   right: -9px;
-  background-color: #e4ff00;
+  background-color: #0cff0c;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
 }
+
+.container-error {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+  }
+
+  .container-error::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -9px;
+    background-color: #ff0000;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
 
 /* Place the container to the left */
 .left {
