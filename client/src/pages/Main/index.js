@@ -13,6 +13,7 @@ export default class Main extends Component {
             query: `{ getLaunches{
                 id,
                 mission,
+                success,
                 rocket{
                     name
                 }
@@ -21,7 +22,7 @@ export default class Main extends Component {
         this.setState({ launches: response.data.data.getLaunches });
     }
 
-    render(){
+    render(){ 
         return(
             <div id="main-container">
                 <div className="row white">
@@ -32,14 +33,16 @@ export default class Main extends Component {
                 </div>
                 <div className="row black">
                     <h2>Launches</h2>
-                    <div>
-                        <h3>s</h3>
-                    </div>
+                    <div className="timeline">
+                        { this.state.launches && this.state.launches.map( launch => (
+                            <div className={((launch.id % 2 === 0) ? "container right": "container left")}>
+                                <div className="content" key={launch.id}>
+                                    <h3>{launch.mission}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>                
                 </div>
-                
-                { this.state.launches && this.state.launches.map(launch => (
-                    <p className="text" key={launch.id}>{launch.mission}</p>
-                ))}
             </div>
         )
     }
