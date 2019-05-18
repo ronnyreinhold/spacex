@@ -6,6 +6,10 @@
     background-image: radial-gradient(farthest-corner at 45px 45px , #2e2e58 0%, #000000 100%);
 }
 
+.azul{
+    color: #38A9E8;
+}
+
 .white {
     background-color: #FFF;
     align-items: center;
@@ -37,6 +41,31 @@
 
 .black h2 {
     font-size: 3em;
+    z-index: 99999;
+}
+
+.up{
+    position: absolute;
+    left: 94%;
+    top: 90%;
+    z-index: 100;
+}
+
+.up::before{
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: -90%;
+    right: -45%;
+    background-color: #38A9E8;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.buttonTop {
+    text-decoration: none;
+    color: #FFF;
 }
 
 /**** TIMELINE ****/
@@ -103,7 +132,7 @@
 
 
 .right {
-  left: 51.3%;
+  left: 51.6%;
   text-align: left;
 }
 

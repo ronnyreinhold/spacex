@@ -6,7 +6,8 @@ import Utils from '../../utils/Utils.js';
 
 export default class Main extends Component {
     state = {
-        launches: []
+        launches: [],
+        isLoading: true
     }
 
     async componentDidMount(){
@@ -16,12 +17,10 @@ export default class Main extends Component {
                 mission,
                 success,
                 date,
-                rocket{
-                    name
-                }
             } }`
         });
-        this.setState({ launches: response.data.data.getLaunches });
+        this.setState({ launches: response.data.data.getLaunches, isLoading: false });
+
     }
 
     render(){ 
@@ -30,12 +29,13 @@ export default class Main extends Component {
                 <div className="row white">
                     <header>
                         <img src={logo} alt="" />
-                        <h1>SpaceX</h1>
+                        <h1>Space<span className="azul">X</span></h1>
                         <small> This app shows every SpaceX launch over the years </small>
                     </header>
                 </div>
                 <div className="row black">
-                    <h2>Launches</h2>
+                    <h2 id="launches">Launches</h2>
+                    { this.state.isLoading ? "Loading..." : "" }
                     <div className="timeline">
                         { this.state.launches && this.state.launches.map( launch => ( 
                             <div className={((launch.id % 2 === 0) 
@@ -48,7 +48,12 @@ export default class Main extends Component {
                                 </div>
                             </div>
                         ))}
-                    </div>                
+                    </div> 
+                    <a href="#launches" className="buttonTop">
+                        <div className="up">
+                            <p>UP</p>
+                        </div>
+                    </a>             
                 </div>
             </div>
         )
