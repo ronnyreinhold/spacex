@@ -10,6 +10,10 @@ export default class Main extends Component {
         isLoading: true
     }
 
+    handleSubmit = (id) => {
+        this.props.history.push(`/launches/${id}`);
+    }
+
     async componentDidMount(){
         const response = await api.post('/graphql', {
             query: `{ getLaunches{
@@ -35,14 +39,14 @@ export default class Main extends Component {
                 </div>
                 <div className="row black">
                     <h2 id="launches">Launches</h2>
-                    { this.state.isLoading ? "Loading..." : "" }
+                    { this.state.isLoading ? "Loading...." : "" }
                     <div className="timeline">
                         { this.state.launches && this.state.launches.map( launch => ( 
                             <div className={((launch.id % 2 === 0) 
                             ? `container${((launch.success) ? "" : "-error")} right`
                             : `container${((launch.success) ? "" : "-error")} left`
                             )} key={launch.id}>
-                                <div className="content" >
+                                <div className="content" onClick={() => this.handleSubmit(launch.id)}>
                                     <span>{Utils.setDateToString(launch.date)}</span>
                                     <h3>{launch.mission}</h3>
                                 </div>
