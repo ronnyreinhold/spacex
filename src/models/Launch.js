@@ -1,14 +1,18 @@
-import api from '../services/api';
+import { RESTDataSource } from 'apollo-datasource-rest' 
 
-export default class Launch {
+export default class Launch extends RESTDataSource {
+    constructor(){
+        super();
+        this.baseURL = 'https://api.spacexdata.com/v3';
+    }
     async getLaunch(id) {
-        const res = await api.get(`/launches/${id}`);
-        return this.reducer(res.data);
+        const res = await this.get(`/launches/${id}`);
+        return this.reducer(res);
     }
 
     async getLaunches(){
-        const res = await api.get('/launches');
-        return Array.isArray(res.data) ? res.data.map(launch => this.reducer(launch)) : [];
+        const res = await this.get('/launches');
+        return Array.isArray(res) ? res.map(launch => this.reducer(launch)) : [];
     }
 
     reducer(data){
