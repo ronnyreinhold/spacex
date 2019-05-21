@@ -3,15 +3,20 @@ This application consumes spaceX API and show every single lounch over the year.
 It's just a simple application to teach myself React and GraphQL.
 
 ## Clone app
-After clone the app, run the command below inside the main folder in terminal:
+After clone the app, run the command below inside the main folder in terminal to download packages:
 ```javascript
 yarn
 ```
-to  donwlodad packeges.
 
 ## Starting Server
-Both backend and frontend are at the same project. To start them both run the command:
+To star backend server, in the **main** folder, run the command bellow in terminal
 ```javascript
 yarn dev
 ```
 
+To star the client, get in **client** folder and run the following command in terminal
+```javascript
+yarn start
+```
+
+![Alt text](/src/assets/print.png?raw=true "Print")
