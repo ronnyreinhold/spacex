@@ -19,9 +19,10 @@ To star the client, get in **client** folder and run the following command in te
 yarn start
 ```
 
+Visiting the url bellow, you shold now see
 ```html
 http://localhost:3000
 ```
-Visiting the url above, you shold now see
+
 
 ![Screenshot](print.png)
