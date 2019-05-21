@@ -24,7 +24,6 @@ export default class Main extends Component {
             } }`
         });
         this.setState({ launches: response.data.data.getLaunches, isLoading: false });
-
     }
 
     render(){ 
@@ -39,7 +38,7 @@ export default class Main extends Component {
                 </div>
                 <div className="row black">
                     <h2 id="launches">Launches</h2>
-                    { this.state.isLoading ? "Loading...." : "" }
+                    { this.state.isLoading ? <h3>Loading...</h3> : "" }
                     <div className="timeline">
                         { this.state.launches && this.state.launches.map( launch => ( 
                             <div className={((launch.id % 2 === 0) 
