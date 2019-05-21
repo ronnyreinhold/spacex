@@ -19,4 +19,9 @@ To star the client, get in **client** folder and run the following command in te
 yarn start
 ```
 
-![Alt text](/src/assets/print.png?raw=true "Print")
+```html
+http://localhost:3000
+```
+Visiting the url above, you shold now see
+
+![Screenshot](print.png)
