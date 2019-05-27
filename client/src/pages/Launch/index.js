@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import api from '../../services/api';
 import './style.css';
+import rocketImg from '../../assets/rocket.png';
 
 export default class Launch extends Component {
     state = {
@@ -43,19 +44,24 @@ export default class Launch extends Component {
     }
 
     render(){
-        const { id, mission, rocket} = this.state.launch;
+        const { id, mission, success, rocket} = this.state.launch;
         return(
-            <div className="">
+            <div id="rocket-main">
                 {this.state.isLoading 
-                ? <h3>Loading...</h3> 
-                :
-                <Fragment>
-                    <h3>{mission}</h3>
-                    <p>{rocket.name}</p>
-                    <p>{rocket.description}</p>
-                </Fragment> 
+                    ? <h3>Loading...</h3> 
+                    :
+                    <Fragment>
+                        <div className="details">
+                            <h3>{mission}</h3>
+                            <h4>{rocket.name}</h4>
+                            <p>{rocket.description}</p>
+                            {success 
+                                ? <img src={rocketImg} alt="success"/>
+                                : ""
+                            }
+                        </div>                    
+                    </Fragment> 
                 }
-                
             </div>
         )
     }

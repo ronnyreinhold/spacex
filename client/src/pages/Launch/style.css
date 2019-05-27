@@ -1,0 +1,31 @@
+#rocket-main{
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000 url("../../assets/stars.png") repeat-x;
+}
+
+#rocket-main img {
+    max-width: 300px;
+    position: fixed;
+    bottom: 0px;
+    left: 38%;
+}
+
+.details{
+    max-width: 500px;
+    text-align: center;
+}
+
+.details h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.details h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
